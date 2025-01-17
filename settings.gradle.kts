@@ -1,1 +1,1 @@
-rootProject.name = "schtmx"
+rootProject.name = "springcollider"

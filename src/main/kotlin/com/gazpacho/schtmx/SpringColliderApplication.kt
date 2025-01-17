@@ -1,11 +1,11 @@
-package com.gazpacho.schtmx
+package com.gazpacho.springcollider
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SchtmxApplication
+class SpringColliderApplication
 
 fun main(args: Array<String>) {
-	runApplication<SchtmxApplication>(*args)
+	runApplication<SpringColliderApplication>(*args)
 }

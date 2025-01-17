@@ -1,4 +1,10 @@
-# React + TypeScript + Vite
+# Spring Collider
+I don't know Spring. I am rusty with React. I want to learn super collider better. Why not stick em all together?
+
+
+
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

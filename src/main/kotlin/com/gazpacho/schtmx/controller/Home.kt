@@ -1,14 +1,14 @@
 package com.gazpacho.schtmx.controller
 
+import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.servlet.ModelAndView
+import org.springframework.web.bind.annotation.RequestMapping
 
-//this should return some template eventually, but later
-@RestController
+@Controller
 class HomeController {
-
-    @GetMapping("/")
-    fun homeView(): String {
-        return "Hello Worm"
+    @GetMapping("/{path:[^\\.]*}", "/error")
+    fun homeView(): ModelAndView {
+        return ModelAndView("forward:/index.html")
     }
 }

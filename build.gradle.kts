@@ -25,6 +25,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	implementation("io.github.wimdeblauwe:htmx-spring-boot:4.0.1")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.springframework.integration:spring-integration-ip:6.4.1")
+	implementation("com.illposed.osc:javaosc-core:0.8")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")

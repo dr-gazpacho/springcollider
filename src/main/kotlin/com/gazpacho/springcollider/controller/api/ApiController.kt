@@ -1,5 +1,6 @@
 package com.gazpacho.springcollider.controller.api
 
+import com.gazpacho.springcollider.service.SuperColliderService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -8,7 +9,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api")
-class ApiController {
+class ApiController (
+    val superColliderService: SuperColliderService
+) {
     @GetMapping("/cakes")
     fun getCakes(): String {
         print("get cake")
@@ -24,6 +27,7 @@ class ApiController {
     @GetMapping("/test")
     fun handleTest(): Map<String, String> {
         print("incoming get was tight dude")
+        superColliderService.sendSynthMessage("/synth/create", listOf("test", 440))
         return mapOf("message" to "it was tight indeed")
     }
 }

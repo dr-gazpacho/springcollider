@@ -1,14 +1,17 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
-// App.tsx
+import '../App.css'
  
 import { Link } from 'react-router-dom';
+import { api, METHOD, RESOURCE } from '../services/api';
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const testRequest = api(METHOD.GET, RESOURCE.TEST, null);
+  console.log(testRequest)
 
   return (
     <>

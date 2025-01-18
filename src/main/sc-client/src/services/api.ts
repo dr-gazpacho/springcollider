@@ -8,8 +8,9 @@ export enum HTTPMETHOD {
 };
 
 export enum ENDPOINT {
-    TEST = "test",
-    FREQ = "frequency"
+    FREQ = "frequency",
+    CREATETEST = "createTest",
+    FREE = "free"
 }
 
 export type Configuration = {
@@ -20,7 +21,7 @@ export type Configuration = {
     body?: any;
 }
 
-export async function api(method: HTTPMETHOD, endpoint: ENDPOINT, body: any) {
+export async function api(method: HTTPMETHOD, endpoint: ENDPOINT, body?: any) {
     const url = `http://localhost:8080/api/${endpoint}`
 
     const httpConfiguration: Configuration = {

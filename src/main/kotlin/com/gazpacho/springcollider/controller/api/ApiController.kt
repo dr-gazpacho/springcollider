@@ -15,9 +15,15 @@ import org.springframework.web.bind.annotation.RestController
 class ApiController (
     val superColliderService: SuperColliderService
 ) {
-    @GetMapping("/test")
-    fun handleTest(): HttpStatus {
-        superColliderService.sendSynthMessage("/synth/create", listOf("test", 440))
+    @GetMapping("/createTest")
+    fun hadndleCreateTest(): HttpStatus {
+        superColliderService.sendSynthMessage("/synth/create", listOf("test", 220))
+        return HttpStatus.OK
+    }
+
+    @GetMapping("/free")
+    fun handleFreeTest(): HttpStatus {
+        superColliderService.sendSynthMessage("/synth/free", listOf("test"))
         return HttpStatus.OK
     }
 

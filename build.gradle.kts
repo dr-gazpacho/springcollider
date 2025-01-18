@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.gazpacho"
-version = "0.0.1-SNAPSHOT"
+version = "1.0.0-b"
 
 java {
 	toolchain {

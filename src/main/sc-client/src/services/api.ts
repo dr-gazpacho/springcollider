@@ -1,32 +1,38 @@
 
 
-export enum METHOD {
+export enum HTTPMETHOD {
     GET = "GET",
     POST = "POST",
     PUT = "PUT",
     DELETE = "DELETE"
 };
 
-export enum RESOURCE {
-    TEST = "test"
+export enum ENDPOINT {
+    TEST = "test",
+    FREQ = "frequency"
 }
 
 export type Configuration = {
-    method: METHOD;
+    method: HTTPMETHOD;
+    headers: {
+        [key: string]: string
+    }
     body?: any;
 }
 
-
-
-export async function api(method: METHOD, resource: RESOURCE, body: any) {
-    const url = `http://localhost:8080/api/${resource}`
+export async function api(method: HTTPMETHOD, endpoint: ENDPOINT, body: any) {
+    const url = `http://localhost:8080/api/${endpoint}`
 
     const httpConfiguration: Configuration = {
-        method: method
+        method: method,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+
     }
 
-    if((method === METHOD.PUT || method === METHOD.POST) && !!body) {
-        httpConfiguration.body = body;
+    if((method === HTTPMETHOD.PUT || method === HTTPMETHOD.POST) && !!body) {
+        httpConfiguration.body = JSON.stringify(body);
     }
 
     try {

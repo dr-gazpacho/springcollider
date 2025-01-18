@@ -1,17 +1,19 @@
-import { useState } from 'react'
 import '../App.css'
+import { useState } from 'react';
+import { Slider } from './controls/slider';
  
 import { Link } from 'react-router-dom';
-import { api, METHOD, RESOURCE } from '../services/api';
+import { api, HTTPMETHOD, ENDPOINT } from '../services/api';
 
 
 function App() {
 
-  const testRequest = api(METHOD.GET, RESOURCE.TEST, null);
+  const testRequest = api(HTTPMETHOD.GET, ENDPOINT.TEST, null);
   console.log(testRequest);
 
   return (
     <>
+      <Slider/>
       <Link to='/cake'>Visit /cake</Link>
     </>
   )

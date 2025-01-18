@@ -1,6 +1,7 @@
 package com.gazpacho.springcollider.controller.api
 
 import com.gazpacho.springcollider.service.SuperColliderService
+import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -14,22 +15,16 @@ import org.springframework.web.bind.annotation.RestController
 class ApiController (
     val superColliderService: SuperColliderService
 ) {
-    @GetMapping("/cakes")
-    fun getCakes(): String {
-        print("get cake")
-        return ""
-    }
-
-    @PostMapping("/cakes")
-    fun createCake(@RequestBody cake: String): String {
-        print("cake post")
-        return ""
-    }
-
     @GetMapping("/test")
-    fun handleTest(): Map<String, String> {
-        print("incoming get was tight dude")
+    fun handleTest(): HttpStatus {
         superColliderService.sendSynthMessage("/synth/create", listOf("test", 440))
-        return mapOf("message" to "it was tight indeed")
+        return HttpStatus.OK
+    }
+
+    @PostMapping("/frequency", consumes = ["application/json"])
+    fun handleFrequencyChange(@RequestBody body: Any): HttpStatus {
+        println(body)
+        return HttpStatus.OK
     }
 }
+

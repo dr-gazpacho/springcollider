@@ -10,7 +10,7 @@ type TestSliderConfiguration = {
 export const Slider: React.FC = () => {
 
     const testSliderConfig: TestSliderConfiguration = {
-        symbol: `frequency`,
+        symbol: `test`,
         freqValue: 220
     }
 

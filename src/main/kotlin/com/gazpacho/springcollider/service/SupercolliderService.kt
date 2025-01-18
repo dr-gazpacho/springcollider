@@ -12,7 +12,14 @@ class SuperColliderService {
 
     fun sendSynthMessage(address: String, args: List<Any>) {
         try {
-            val message = OSCMessage(address, args)
+            val typedArgs = args.map { arg ->
+                when (arg) {
+                    is String -> arg
+                    is Number -> arg.toFloat() // Convert all numbers to Float for SuperCollider
+                    else -> throw IllegalArgumentException("Unsupported argument type: ${arg::class}")
+                }
+            }
+            val message = OSCMessage(address, typedArgs)
             oscPort.send(message)
         } catch (e: OSCSerializeException) {
             println("Failed to send OSC message: ${e.message}")

@@ -2,7 +2,7 @@ s.boot;
 
 SynthDef.new(\basicSine, {
 	| freq = 440, out = 0 |
-	Out.ar(out, SinOsc.ar(freq.lag(1), 0, 0.1))
+	Out.ar(out, SinOsc.ar(freq.lag(2), 0, 0.1))
 }).add;
 
 s.plotTree;
@@ -12,6 +12,12 @@ OSCFunc({
 	|msg, time, addr, recvPort|
     var name = msg[1];
 	var freq = msg[2];
+	//avoid overwriting references to synths
+	//if I make 'test' and then another 'test', the first UGEN keeps playing (cont.)
+	//I just just my reference to the first one
+	if(currentEnvironment.at(name.asSymbol).notNil) {
+        currentEnvironment.at(name.asSymbol).free;
+    };
 	//this would be the same I think as ~name
     currentEnvironment.put(
         (name).asSymbol,
@@ -45,6 +51,3 @@ OSCFunc({
 	|msg|
 	CmdPeriod.run;
 }, '/synth/freeAll');
-
-
-

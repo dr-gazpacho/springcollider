@@ -1,6 +1,7 @@
 package com.gazpacho.springcollider.controller.api
 
 import com.gazpacho.springcollider.service.SuperColliderService
+import com.gazpacho.springcollider.model.FrequencyRequest
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
@@ -28,8 +29,8 @@ class ApiController (
     }
 
     @PostMapping("/frequency", consumes = ["application/json"])
-    fun handleFrequencyChange(@RequestBody body: Any): HttpStatus {
-        println(body)
+    fun handleFrequencyChange(@RequestBody body: FrequencyRequest): HttpStatus {
+        superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.freqValue))
         return HttpStatus.OK
     }
 }

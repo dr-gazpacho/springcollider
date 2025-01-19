@@ -10,7 +10,7 @@ import java.net.InetAddress
 class SuperColliderService {
     private val oscPort = OSCPortOut(InetAddress.getLocalHost(), 57120)
 
-    fun sendSynthMessage(address: String, args: List<Any>) {
+    fun sendSynthMessage(address: String, args: List<Any> = listOf("")) {
         try {
             val typedArgs = args.map { arg ->
                 when (arg) {

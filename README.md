@@ -1,6 +1,14 @@
 # Spring Collider
 I don't know Spring. I am rusty with React. I want to learn super collider better. Why not stick em all together?
 
+In the UI, I plan to build a small handlful of synth modules: some basic things like FM Synthesis/Additive Synthesis and Wave Tables.
+I also plan to build a digital UI to test some code for an embedded build on a Raspberry Pi.
+
+In the Spring app, I'm going to try to implement a simple Chain of Responsibility. Supercollider can recieve OSC/UDP messages, and therefore sends no responses.
+I need to build out an application that keeps track of which synths are running in supercollider so it can handle user input successfully
+
+The Supercollider file should mostly wind up being paramterized SynthDefs and OSC listeners
+
 
 
 

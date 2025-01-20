@@ -9,8 +9,11 @@ I need to build out an application that keeps track of which synths are running 
 
 The Supercollider file should mostly wind up being paramterized SynthDefs and OSC listeners
 
-
-
+Notes on FM
+- Modulator Frequency: determines sideband spacing
+- Modulator Amplitude (mul): determines number of audible side bands (index of modulation)
+- Carrier Frequencty: the anchor around which we create sidebands
+- A clear sense of pitch arises when the carrier and modulator form a simple ratio
 
 ## React + TypeScript + Vite
 

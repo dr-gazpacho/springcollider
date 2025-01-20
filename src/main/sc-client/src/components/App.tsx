@@ -1,10 +1,10 @@
 import '../App.css'
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Slider } from './controls/slider';
 import { Button } from './controls/button';
  
 import { Link } from 'react-router-dom';
-import { api, HTTPMETHOD, ENDPOINT } from '../services/api';
+import { ENDPOINT } from '../services/api';
 
 
 function App() {

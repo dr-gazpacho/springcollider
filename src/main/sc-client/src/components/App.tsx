@@ -14,7 +14,7 @@ function App() {
       <Slider/>
       <Button name="create" endpoint={ENDPOINT.CREATETEST}/>
       <Button name="free" endpoint={ENDPOINT.FREE} />
-      <Link to='/cake'>Visit /cake</Link>
+      {/* <Link to='/cake'>Visit /cake</Link> */}
     </>
   )
 }

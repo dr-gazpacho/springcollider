@@ -1,8 +1,7 @@
 package com.gazpacho.springcollider.controller.api
 
 import com.gazpacho.springcollider.service.SuperColliderService
-import com.gazpacho.springcollider.model.FrequencyRequest
-import com.gazpacho.springcollider.model.VolumeRequest
+import com.gazpacho.springcollider.model.SliderRequest
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
@@ -19,26 +18,25 @@ class ApiController (
 ) {
     @GetMapping("/createTest")
     fun hadndleCreateTest(): HttpStatus {
-        superColliderService.sendSynthMessage("/synth/create", listOf("test", 220))
+        superColliderService.sendSynthMessage("/synth/create", listOf("frequency", 220))
         return HttpStatus.OK
     }
 
     @PostMapping("/volume")
-    fun handleAdjustVolume(@RequestBody body: VolumeRequest): HttpStatus {
-        println(body.volume)
-        superColliderService.sendSynthMessage("/system/volume", listOf(body.volume))
+    fun handleAdjustVolume(@RequestBody body: SliderRequest): HttpStatus {
+        superColliderService.sendSynthMessage("/system/volume", listOf(body.value))
         return HttpStatus.OK
     }
 
     @GetMapping("/free")
     fun handleFreeTest(): HttpStatus {
-        superColliderService.sendSynthMessage("/synth/free", listOf("test"))
+        superColliderService.sendSynthMessage("/synth/free", listOf("frequency"))
         return HttpStatus.OK
     }
 
     @PostMapping("/frequency", consumes = ["application/json"])
-    fun handleFrequencyChange(@RequestBody body: FrequencyRequest): HttpStatus {
-        superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.freqValue))
+    fun handleFrequencyChange(@RequestBody body: SliderRequest): HttpStatus {
+        superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.value))
         return HttpStatus.OK
     }
 }

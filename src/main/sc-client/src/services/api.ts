@@ -8,6 +8,7 @@ export enum HTTPMETHOD {
 };
 
 export enum ENDPOINT {
+    VOLUME = "volume",
     FREQ = "frequency",
     CREATETEST = "createTest",
     FREE = "free"

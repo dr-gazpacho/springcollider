@@ -5,6 +5,7 @@ s.boot;
 s.newBusAllocators;
 s.freeAll;
 OSCdef.freeAll;
+~v = s.volume;
 //until you reboot SC, current environment has references to processes on all servers
 
 s.waitForBoot({
@@ -37,6 +38,14 @@ s.waitForBoot({
         Synth(\fm, [\freq, freq])
     );
     }, '/synth/create');
+
+	//update frequency of synth with given name
+	OSCFunc({
+		|msg, time, addr, recvPort|
+		var name = msg[1];
+		var freq = msg[2];
+		currentEnvironment.at(name.asSymbol).set(\freq, freq)
+	}, '/synth/params');
     //remove synth with a given name
     OSCdef.new(\free, {
         |msg, time, addr, recvPort|
@@ -46,6 +55,12 @@ s.waitForBoot({
 			currentEnvironment.removeAt(name.asSymbol);
         };
     }, '/synth/free');
+
+	OSCdef.new(\volume, {
+		|msg, time, addr, recvPort|
+		var value = msg[1];
+		~v.volume = value;
+	}, '/system/volume')
 
 });
 )

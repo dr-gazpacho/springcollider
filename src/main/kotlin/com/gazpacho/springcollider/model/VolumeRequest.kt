@@ -1,4 +1,5 @@
 package com.gazpacho.springcollider.model
 
-class VolumeRequest {
-}
+data class VolumeRequest (
+    val volume: Number
+)

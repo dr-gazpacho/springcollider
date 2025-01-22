@@ -11,7 +11,8 @@ The Supercollider file should mostly wind up being paramterized SynthDefs and OS
 
 Notes on FM
 - Modulator Frequency: determines sideband spacing
-- Modulator Amplitude (mul): determines number of audible side bands (index of modulation)
+- Modulator Amplitude (mul): determines number of audible side bands
+  - Index of Modulation: modulatorAmplitude/modulatorFrequency - loosly correlates to number of sideband pairs (numOfPairs ~ index + 1)
 - Carrier Frequencty: the anchor around which we create sidebands
 - A clear sense of pitch arises when the carrier and modulator form a simple ratio
 

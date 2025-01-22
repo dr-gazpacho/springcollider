@@ -1,4 +1,5 @@
-import { api, HTTPMETHOD, ENDPOINT } from "../../services/api";
+import { api} from "../../services/api";
+import {HTTPMETHOD, ENDPOINT } from "../../types"
 
 
 type ButtonProps = {

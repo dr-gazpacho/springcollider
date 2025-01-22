@@ -1,38 +1,39 @@
 import { useState, useEffect } from "react";
-import { api, HTTPMETHOD, ENDPOINT } from "../../services/api";
+import { api } from "../../services/api";
+import { SliderVariant } from "../../types";
+import { getSliderConfig } from "../../utilities/control";
 
-type TestSliderConfiguration = {
-    symbol: string;
-    freqValue: number;
+type SliderProps = {
+    variant: SliderVariant
 }
 
 
-export const Slider: React.FC = () => {
+export const Slider: React.FC<SliderProps> = ({ variant }) => {
 
-    const testSliderConfig: TestSliderConfiguration = {
-        symbol: `test`,
-        freqValue: 220
-    }
+    const sliderConfig = getSliderConfig(variant)
 
-    const [value, setValue] = useState(testSliderConfig);
+    const [sliderValue, setSliderValue] = useState(sliderConfig);
 
-    console.log(`slider: ${value.freqValue}`);
+    console.log(`slider: ${sliderValue.value}`);
 
     useEffect(() => {
-        console.log('here?')
-        api(HTTPMETHOD.POST, ENDPOINT.FREQ, value);
-    }, [value.freqValue]);
+        api(
+            sliderConfig.httpMethod,
+            sliderConfig.endpoint,
+            sliderValue
+        );
+    }, [sliderValue.value]);
 
     return (
         <div>
             <input
                 type="range"
-                min={220} 
-                max={440}
-                value={value.freqValue} 
-                onChange={(e) => setValue({
-                        ...value,
-                        freqValue: Number(e.target.value)
+                min={sliderConfig.min} 
+                max={sliderConfig.max}
+                value={sliderValue.value} 
+                onChange={(e) => setSliderValue({
+                        ...sliderValue,
+                        value: Number(e.target.value)
                     }
                 )}
             >

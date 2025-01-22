@@ -1,26 +1,4 @@
-
-
-export enum HTTPMETHOD {
-    GET = "GET",
-    POST = "POST",
-    PUT = "PUT",
-    DELETE = "DELETE"
-};
-
-export enum ENDPOINT {
-    VOLUME = "volume",
-    FREQ = "frequency",
-    CREATETEST = "createTest",
-    FREE = "free"
-}
-
-export type Configuration = {
-    method: HTTPMETHOD;
-    headers: {
-        [key: string]: string
-    }
-    body?: any;
-}
+import { HTTPMETHOD, ENDPOINT, Configuration } from "../types";
 
 export async function api(method: HTTPMETHOD, endpoint: ENDPOINT, body?: any) {
     const url = `http://localhost:8080/api/${endpoint}`

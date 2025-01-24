@@ -26,8 +26,8 @@ export enum ENDPOINT {
     OFF = "off",
     VOLUME = "volume",
     FREE = "free",
-    CARRIER = "carrier",
-    MODULATOR = "modulator",
+    CARRIER_FREEQUENCY = "frequency/carrier",
+    MODULATOR_FREEQUENCY = "frequency/modulator",
     LFO = "lfo"
 };
 

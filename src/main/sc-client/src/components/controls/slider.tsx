@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
 import { SliderVariant } from "../../types/types-and-such";
-import { getSliderConfig } from "../../utilities/control";
+import { getSliderConfig } from "../../utilities/control-util";
 
 type SliderProps = {
     variant: SliderVariant

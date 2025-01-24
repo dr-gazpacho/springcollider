@@ -10,8 +10,8 @@ export function FMController() {
             <Slider variant={SliderVariant.CARRIER}/>
             <Slider variant={SliderVariant.MODULATOR}/>
             <Slider variant={SliderVariant.VOLUME}/>
-            <Button name="create" endpoint={ENDPOINT.ON}/>
-            <Button name="free" endpoint={ENDPOINT.OFF} />
+            <Button name="on" endpoint={ENDPOINT.ON}/>
+            <Button name="off" endpoint={ENDPOINT.OFF} />
         </div>
     )
 

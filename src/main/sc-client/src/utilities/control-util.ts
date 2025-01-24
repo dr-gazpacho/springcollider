@@ -6,25 +6,25 @@ export function getSliderConfig(variant: SliderVariant): SliderConfig {
     switch(variant){
         case SliderVariant.CARRIER:
             return {
-                symbol: "frequency",
-                value: 440,
-                endpoint: ENDPOINT.CARRIER,
+                symbol: "carrier",
+                value: 220,
+                endpoint: ENDPOINT.CARRIER_FREEQUENCY,
                 httpMethod: HTTPMETHOD.POST,
                 min: 0,
                 max: 880
             } as SliderConfig
         case SliderVariant.MODULATOR:
             return {
-                symbol: "frequency",
-                value: 440,
-                endpoint: ENDPOINT.MODULATOR,
+                symbol: "modulator",
+                value: 0,
+                endpoint: ENDPOINT.MODULATOR_FREEQUENCY,
                 httpMethod: HTTPMETHOD.POST,
                 min: 0,
                 max: 880
             } as SliderConfig
         case SliderVariant.LFO:
             return {
-                symbol: "frequency",
+                symbol: "lfo",
                 value: 0,
                 endpoint: ENDPOINT.LFO,
                 httpMethod: HTTPMETHOD.POST,

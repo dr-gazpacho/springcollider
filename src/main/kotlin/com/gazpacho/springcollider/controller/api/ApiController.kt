@@ -5,9 +5,11 @@ import com.gazpacho.springcollider.model.SliderRequest
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -16,9 +18,15 @@ import org.springframework.web.bind.annotation.RestController
 class ApiController (
     val superColliderService: SuperColliderService
 ) {
-    @GetMapping("/createTest")
+    @GetMapping("/on")
     fun hadndleCreateTest(): HttpStatus {
-        superColliderService.sendSynthMessage("/synth/create", listOf("frequency", 220))
+        superColliderService.sendSynthMessage("/synth/create", listOf("carrier", 220, "modulator", 0))
+        return HttpStatus.OK
+    }
+
+    @GetMapping("/off")
+    fun handleFreeTest(): HttpStatus {
+        superColliderService.sendSynthMessage("/synth/free", listOf("frequency"))
         return HttpStatus.OK
     }
 
@@ -28,14 +36,11 @@ class ApiController (
         return HttpStatus.OK
     }
 
-    @GetMapping("/free")
-    fun handleFreeTest(): HttpStatus {
-        superColliderService.sendSynthMessage("/synth/free", listOf("frequency"))
-        return HttpStatus.OK
-    }
-
-    @PostMapping("/frequency", consumes = ["application/json"])
-    fun handleFrequencyChange(@RequestBody body: SliderRequest): HttpStatus {
+    @PostMapping("/frequency/{target}", consumes = ["application/json"])
+    fun handleFrequencyChange(
+        @RequestBody body: SliderRequest,
+        @PathVariable target: String
+    ): HttpStatus {
         superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.value))
         return HttpStatus.OK
     }

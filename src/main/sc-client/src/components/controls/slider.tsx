@@ -8,7 +8,7 @@ type SliderProps = {
 }
 
 
-export const Slider: React.FC<SliderProps> = ({ variant }) => {
+export function Slider: React.FC<SliderProps> ({ variant }) {
 
     const sliderConfig = getSliderConfig(variant)
 

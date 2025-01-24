@@ -1,7 +1,6 @@
 import '../App.css'
 // import { useState } from 'react';
-import { Slider } from './controls/slider';
-import { Button } from './controls/button';
+import { FMController } from './fm-controller';
  
 // import { Link } from 'react-router-dom';
 import { ENDPOINT, SliderVariant } from '../types';
@@ -11,10 +10,7 @@ function App() {
 
   return (
     <>
-      <Slider variant={SliderVariant.FREQUENCY}/>
-      <Slider variant={SliderVariant.VOLUME}/>
-      <Button name="create" endpoint={ENDPOINT.CREATETEST}/>
-      <Button name="free" endpoint={ENDPOINT.FREE} />
+      <FMController />
       {/* <Link to='/cake'>Visit /cake</Link> */}
     </>
   )

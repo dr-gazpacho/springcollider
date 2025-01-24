@@ -5,12 +5,13 @@ export type SliderConfig = {
     httpMethod: HTTPMETHOD,
     min: number,
     max: number,
-}
+};
 
 export enum SliderVariant {
     FREQUENCY = "FREQUENCY",
+    MODULATOR = "MODULATOR",
     VOLUME = "VOLUME"
-}
+};
 
 export enum HTTPMETHOD {
     GET = "GET",
@@ -24,7 +25,7 @@ export enum ENDPOINT {
     FREQ = "frequency",
     CREATETEST = "createTest",
     FREE = "free"
-}
+};
 
 export type Configuration = {
     method: HTTPMETHOD;
@@ -32,4 +33,4 @@ export type Configuration = {
         [key: string]: string
     }
     body?: any;
-}
+};

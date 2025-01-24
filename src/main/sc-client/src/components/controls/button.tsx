@@ -1,5 +1,5 @@
 import { api} from "../../services/api";
-import {HTTPMETHOD, ENDPOINT } from "../../types"
+import {HTTPMETHOD, ENDPOINT } from "../../types";
 
 
 type ButtonProps = {
@@ -7,10 +7,7 @@ type ButtonProps = {
     endpoint: ENDPOINT
 }
 
-export const Button: React.FC<ButtonProps> = ({
-    name,
-    endpoint
-}) => {
+export function Button({ name, endpoint }: ButtonProps) {
     return (
         <input value={name} type='button' onClick={() => api(HTTPMETHOD.GET, endpoint)}></input>
     )

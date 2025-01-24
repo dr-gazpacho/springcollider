@@ -1,4 +1,4 @@
-import { ENDPOINT, HTTPMETHOD, SliderConfig, SliderVariant } from "../types"
+import { ENDPOINT, HTTPMETHOD, SliderConfig, SliderVariant } from "../types";
 
 
 
@@ -31,4 +31,4 @@ export function getSliderConfig(variant: SliderVariant): SliderConfig {
             } as SliderConfig
     }
 
-}
+};

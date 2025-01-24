@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
-import { SliderVariant } from "../../types";
+import { SliderVariant } from "../../types/types-and-such";
 import { getSliderConfig } from "../../utilities/control";
 
 type SliderProps = {
@@ -8,7 +8,7 @@ type SliderProps = {
 }
 
 
-export function Slider: React.FC<SliderProps> ({ variant }) {
+export function Slider({ variant }: SliderProps) {
 
     const sliderConfig = getSliderConfig(variant)
 

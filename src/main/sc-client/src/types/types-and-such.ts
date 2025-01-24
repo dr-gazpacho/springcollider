@@ -8,8 +8,9 @@ export type SliderConfig = {
 };
 
 export enum SliderVariant {
-    FREQUENCY = "FREQUENCY",
+    CARRIER = "CARRIER",
     MODULATOR = "MODULATOR",
+    LFO = "LFO",
     VOLUME = "VOLUME"
 };
 
@@ -21,10 +22,13 @@ export enum HTTPMETHOD {
 };
 
 export enum ENDPOINT {
+    ON = "on",
+    OFF = "off",
     VOLUME = "volume",
-    FREQ = "frequency",
-    CREATETEST = "createTest",
-    FREE = "free"
+    FREE = "free",
+    CARRIER = "carrier",
+    MODULATOR = "modulator",
+    LFO = "lfo"
 };
 
 export type Configuration = {

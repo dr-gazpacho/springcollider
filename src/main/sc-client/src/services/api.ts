@@ -1,4 +1,4 @@
-import { HTTPMETHOD, ENDPOINT, Configuration } from "../types";
+import { HTTPMETHOD, ENDPOINT, Configuration } from "../types/types-and-such";
 
 export async function api(method: HTTPMETHOD, endpoint: ENDPOINT, body?: any) {
     const url = `http://localhost:8080/api/${endpoint}`

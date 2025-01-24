@@ -1,9 +1,6 @@
 import '../App.css'
-// import { useState } from 'react';
 import { FMController } from './fm-controller';
- 
 // import { Link } from 'react-router-dom';
-import { ENDPOINT, SliderVariant } from '../types';
 
 
 function App() {

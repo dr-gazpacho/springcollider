@@ -26,7 +26,7 @@ class ApiController (
 
     @GetMapping("/off")
     fun handleFreeTest(): HttpStatus {
-        superColliderService.sendSynthMessage("/synth/free", listOf("frequency"))
+        superColliderService.sendSynthMessage("/synth/free", listOf("carrier"))
         return HttpStatus.OK
     }
 
@@ -41,13 +41,14 @@ class ApiController (
         @RequestBody body: SliderRequest,
         @PathVariable target: String
     ): HttpStatus {
+        println(body)
             when (target) {
                 "carrier" -> superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.value, "carrier"))
                 "carrierRatio" -> superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.value, "carrierRatio"))
                 "modulatorRatio" -> superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.value, "modulatorRatio"))
                 else -> throw IllegalArgumentException("Unsupported argument")
             }
-        
+
             return HttpStatus.OK
     }
 }

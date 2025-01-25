@@ -43,9 +43,14 @@ s.waitForBoot({
 	OSCFunc({
 		|msg, time, addr, recvPort|
 		var name = msg[1];
-		var freq = msg[2];
+		var val = msg[2];
 		var property = msg[3];
-		currentEnvironment.at(name.asSymbol).set(\freq, freq)
+		switch(property.asString,
+			"carrier", { currentEnvironment.at(name.asSymbol).set(\freq, val) },
+			"carrierRatio", { currentEnvironment.at(name.asSymbol).set(\cRatio, val) },
+			"modulatorRatio", { currentEnvironment.at(name.asSymbol).set(\mRatio, val) },
+			{ "Unknown parameter".postln }
+		);
 	}, '/synth/params');
 
     //remove synth with a given name

@@ -6,6 +6,7 @@ export function getSliderConfig(variant: SliderVariant): SliderConfig {
     switch(variant){
         case SliderVariant.CARRIER:
             return {
+                //TO DO - rename this symbol... ultimately it needs to refer to the variable name in SC
                 symbol: "carrier",
                 value: 220,
                 endpoint: ENDPOINT.CARRIER_FREEQUENCY,
@@ -15,7 +16,7 @@ export function getSliderConfig(variant: SliderVariant): SliderConfig {
             } as SliderConfig
         case SliderVariant.CARRIER_RATIO:
             return {
-                symbol: "carrierRatio",
+                symbol: "carrier",
                 value: 1,
                 endpoint: ENDPOINT.CARRIER_RATIO,
                 httpMethod: HTTPMETHOD.POST,
@@ -24,7 +25,7 @@ export function getSliderConfig(variant: SliderVariant): SliderConfig {
             } as SliderConfig
         case SliderVariant.MODULATOR_RATIO:
             return {
-                symbol: "modulatorRatio",
+                symbol: "carrier",
                 value: 1,
                 endpoint: ENDPOINT.MODULATOR_RATIO,
                 httpMethod: HTTPMETHOD.POST,

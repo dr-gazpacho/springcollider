@@ -44,8 +44,10 @@ s.waitForBoot({
 		|msg, time, addr, recvPort|
 		var name = msg[1];
 		var freq = msg[2];
+		var property = msg[3];
 		currentEnvironment.at(name.asSymbol).set(\freq, freq)
 	}, '/synth/params');
+
     //remove synth with a given name
     OSCdef.new(\free, {
         |msg, time, addr, recvPort|

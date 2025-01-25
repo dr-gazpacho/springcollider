@@ -9,7 +9,8 @@ export type SliderConfig = {
 
 export enum SliderVariant {
     CARRIER = "CARRIER",
-    MODULATOR = "MODULATOR",
+    CARRIER_RATIO = "CARRIER_RATIO",
+    MODULATOR_RATIO = "MODULATOR_RATIO",
     LFO = "LFO",
     VOLUME = "VOLUME"
 };
@@ -27,8 +28,9 @@ export enum ENDPOINT {
     VOLUME = "volume",
     FREE = "free",
     CARRIER_FREEQUENCY = "frequency/carrier",
-    MODULATOR_FREEQUENCY = "frequency/modulator",
-    LFO = "lfo"
+    CARRIER_RATIO = "frequency/carrierRatio",
+    MODULATOR_RATIO = "frequency/modulatorRatio"
+
 };
 
 export type Configuration = {

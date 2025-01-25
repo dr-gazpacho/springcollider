@@ -20,7 +20,7 @@ class ApiController (
 ) {
     @GetMapping("/on")
     fun hadndleCreateTest(): HttpStatus {
-        superColliderService.sendSynthMessage("/synth/create", listOf("carrier", 220, "modulator", 0))
+        superColliderService.sendSynthMessage("/synth/create", listOf("carrier", 220))
         return HttpStatus.OK
     }
 
@@ -41,8 +41,14 @@ class ApiController (
         @RequestBody body: SliderRequest,
         @PathVariable target: String
     ): HttpStatus {
-        superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.value))
-        return HttpStatus.OK
+            when (target) {
+                "carrier" -> superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.value, "carrier"))
+                "carrierRatio" -> superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.value, "carrierRatio"))
+                "modulatorRatio" -> superColliderService.sendSynthMessage("/synth/params", listOf(body.symbol, body.value, "modulatorRatio"))
+                else -> throw IllegalArgumentException("Unsupported argument")
+            }
+        
+            return HttpStatus.OK
     }
 }
 

@@ -13,20 +13,20 @@ export function getSliderConfig(variant: SliderVariant): SliderConfig {
                 min: 0,
                 max: 880
             } as SliderConfig
-        case SliderVariant.MODULATOR:
+        case SliderVariant.CARRIER_RATIO:
             return {
-                symbol: "modulator",
-                value: 0,
-                endpoint: ENDPOINT.MODULATOR_FREEQUENCY,
+                symbol: "carrierRatio",
+                value: 1,
+                endpoint: ENDPOINT.CARRIER_RATIO,
                 httpMethod: HTTPMETHOD.POST,
                 min: 0,
-                max: 880
+                max: 10
             } as SliderConfig
-        case SliderVariant.LFO:
+        case SliderVariant.MODULATOR_RATIO:
             return {
-                symbol: "lfo",
-                value: 0,
-                endpoint: ENDPOINT.LFO,
+                symbol: "modulatorRatio",
+                value: 1,
+                endpoint: ENDPOINT.MODULATOR_RATIO,
                 httpMethod: HTTPMETHOD.POST,
                 min: 0,
                 max: 10

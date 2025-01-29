@@ -40,7 +40,7 @@ s.waitForBoot({
     }, '/synth/create');
 
 	//update frequency of synth with given name
-	OSCdef.new(\update{
+	OSCdef.new(\update, {
 		|msg, time, addr, recvPort|
 		var name = msg[1];
 		var val = msg[2];

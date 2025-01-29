@@ -16,53 +16,13 @@ Notes on FM
 - Carrier Frequencty: the anchor around which we create sidebands
 - A clear sense of pitch arises when the carrier and modulator form a simple ratio
 
-## React + TypeScript + Vite
+## Running
+You're gonna have to run a few different things, but when they're all up, it's pretty easy to make them all talk
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### React
+I'm using NPM as a package manager. It's just a simple react app with Tailwind. To get cooking with the react app you can do one of two things:
+1. Thing one:
+ - From the root of the project, `cd src/main/sc-client && npm install`
+ - Then either `npm run dev` if you want to run the react app on its own dev server (nice for hot reloading)
+ - Or run `npm run build` to make a new js bundle that gets served by the spring app
+ - Or hell do both and just live free but let your heart be your guide and hope to God you got a good one for all of our sakes

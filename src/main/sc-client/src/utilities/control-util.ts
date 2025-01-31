@@ -7,6 +7,7 @@ export function getSliderConfig(variant: SliderVariant): SliderConfig {
         case SliderVariant.CARRIER:
             return {
                 //TO DO - rename this symbol... ultimately it needs to refer to the variable name in SC
+                //One FM voice could just run off ratios, another could allow for full mixing of two waves/forms
                 symbol: "carrier",
                 value: 220,
                 endpoint: ENDPOINT.CARRIER_FREEQUENCY,
